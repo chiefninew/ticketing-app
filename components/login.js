@@ -52,16 +52,14 @@ const Login = () => {
         <TextInput
           style={styles.input}
           value={email}
-          onChange={setEmail}
+          onChangeText={setEmail}
           placeholder='Email Address'
-          autoCompleteType='email'
           underlineColorAndroid='transparent'
-          keyboardType='email-address'
         />
         <TextInput
           style={styles.input}
           value={password}
-          onChange={setPassword}
+          onChangeText={setPassword}
           placeholder='Password'
           secureTextEntry={true}
           underlineColorAndroid={'transparent'}

@@ -46,7 +46,7 @@ const Login = () => {
         <TextInput
           style={styles.input}
           value={email}
-          onChange={setEmail}
+          onChangeText={setEmail}
           placeholder='Email Address'
           autoCompleteType='email'
           underlineColorAndroid='transparent'
@@ -55,14 +55,14 @@ const Login = () => {
         <TextInput
           style={styles.input}
           value={name}
-          onChange={setName}
+          onChangeText={setName}
           placeholder='Name'
           underlineColorAndroid='transparent'
         />
         <TextInput
           style={styles.input}
           value={password}
-          onChange={setPassword}
+          onChangeText={setPassword}
           placeholder='Password'
           secureTextEntry={true}
           underlineColorAndroid={'transparent'}
