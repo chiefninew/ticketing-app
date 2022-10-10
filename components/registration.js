@@ -1,5 +1,7 @@
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
 import React, { useState } from 'react'
+import { updateUser } from '../actions/user';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-native'
 
 const styles = StyleSheet.create({
@@ -24,9 +26,18 @@ const styles = StyleSheet.create({
 
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
+
+  const onRegister = () => {
+    dispatch(updateUser({
+      email,
+      name,
+    }));
+    navigate('/home')
+  }
 
   return (
     <View style={styles.container}>
@@ -56,7 +67,7 @@ const Login = () => {
           secureTextEntry={true}
           underlineColorAndroid={'transparent'}
         />
-        <TouchableOpacity onPress={() => navigate('/home')}>
+        <TouchableOpacity onPress={onRegister}>
           <View style={styles.button}>
             <Text>Register</Text>
           </View>
