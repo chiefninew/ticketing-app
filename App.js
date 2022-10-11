@@ -4,9 +4,10 @@ import { NativeRouter, Route, Routes } from 'react-router-native';
 import Home from './components/home';
 import Login from './components/login';
 import Registration from './components/registration';
+import TicketView from './components/ticket-view';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import { store, persistor } from './state/store';
+import { store, persistor } from './reducers/store';
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
               <Route exact path="/" element={<Login />} />
               <Route path="/home" element={<Home />} />
               <Route path="/registration" element={<Registration />} />
+              <Route path="/home/ticketview" element={<TicketView />} />
             </Routes>
           </NativeRouter>
         </View>

@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import Tickets from './tickets';
 import MyTickets from './my-tickets';
 import { useNavigate } from 'react-router-native';
-import { updateUser } from '../actions/user';
+import { setUser } from '../reducers/user/actions';
 
 const styles = StyleSheet.create({
   container: {
@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
   header: {
     padding: 15,
     paddingTop: StatusBar.currentHeight,
+    paddingBottom: 0,
     flexDirection: 'row'
   },
   title: {
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
   input: {
     padding: 10,
     marginVertical: 10,
-    backgroundColor: '#EFF0F6',
+    backgroundColor: '#EFF0F7',
     borderRadius: 15,
     fontSize: 16
   },
@@ -54,7 +55,7 @@ export default function TabViewExample() {
   ]);
 
   const onLogout = useCallback(() => {
-    dispatch(updateUser({}));
+    dispatch(setUser({}));
     navigation('/')
   });
 
@@ -64,7 +65,7 @@ export default function TabViewExample() {
       indicatorStyle={styles.indicatorStyle}
       activeColor={'#6548B8'}
       inactiveColor={'#4A4A4A'}
-      labelStyle={{ fontWeight: 'bold', fontSize: 18 }}
+      labelStyle={{ fontWeight: '600', fontSize: 18 }}
       style={{ backgroundColor: 'white' }}
     />
   );

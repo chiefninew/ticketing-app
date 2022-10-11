@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   }
 })
 
-const TicketItem = ({ item }) => {
+const TicketItem = ({ item, onPress = () => {} }) => {
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -56,12 +56,12 @@ const TicketItem = ({ item }) => {
         <View style={styles.info}>
           <View style={{ flex: 1, justifyContent: 'flex-end' }}>
             <Text style={styles.title}>{item.title}</Text>
-            <Text style={styles.description}>{item.description}</Text>
+            <Text style={styles.description}>P{item.price} • {item.date}</Text>
           </View>
           <View style={{ justifyContent: 'center' }}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={onPress}>
               <View style={styles.button}>
-                <Octicons name='chevron-right' size={24} color='#5033A3' />
+                <Octicons name='chevron-right' size={24} color='#6548B8' />
               </View>
             </TouchableOpacity>
           </View>

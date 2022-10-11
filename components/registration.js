@@ -1,6 +1,6 @@
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import { updateUser } from '../actions/user';
+import { setUser } from '../reducers/user/actions';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-native'
 
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   input: {
     padding: 10,
     marginVertical: 10,
-    backgroundColor: '#EFF0F6',
+    backgroundColor: '#EFF0F7',
     borderRadius: 15,
     fontSize: 16
   },
@@ -84,7 +84,7 @@ const Login = () => {
   }, [email, name, password]);
 
   const onRegister = () => {
-    dispatch(updateUser({
+    dispatch(setUser({
       email,
       name,
     }));

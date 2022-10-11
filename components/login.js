@@ -2,7 +2,7 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'reac
 import React, { useEffect, useState, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-native'
-import { updateUser } from '../actions/user'
+import { setUser } from '../reducers/user/actions'
 
 const logo = require('../assets/TICKETSENPAI.png');
 
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   input: {
     padding: 10,
     marginVertical: 10,
-    backgroundColor: '#EFF0F6',
+    backgroundColor: '#EFF0F7',
     borderRadius: 15,
     fontSize: 16
   },
@@ -90,7 +90,7 @@ const Login = () => {
 
   const onLogin = useCallback(() => {
     console.log('CALLED')
-    dispatch(updateUser({
+    dispatch(setUser({
       email: email,
       name: 'test'
     }))
