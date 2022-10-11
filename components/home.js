@@ -1,5 +1,5 @@
-import React, { useCallback } from 'react';
-import { View, useWindowDimensions, StyleSheet, StatusBar, Text, TouchableOpacity } from 'react-native';
+import React, { useCallback, useState } from 'react';
+import { View, useWindowDimensions, StyleSheet, StatusBar, Text, TouchableOpacity, TextInput } from 'react-native';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import { useDispatch } from 'react-redux';
 import Tickets from './tickets';
@@ -14,12 +14,27 @@ const styles = StyleSheet.create({
   header: {
     padding: 15,
     paddingTop: StatusBar.currentHeight,
+    flexDirection: 'row'
   },
   title: {
     color: 'black',
     fontWeight: 'bold',
     fontSize: 16,
-  }
+  },
+  indicatorStyle: {
+    backgroundColor: '#6548B8',
+    height: 5,
+    borderLeftWidth: 70,
+    borderRightWidth: 70,
+    borderColor: 'white'
+  },
+  input: {
+    padding: 10,
+    marginVertical: 10,
+    backgroundColor: '#EFF0F6',
+    borderRadius: 15,
+    fontSize: 16
+  },
 })
 
 const renderScene = SceneMap({
@@ -31,9 +46,9 @@ export default function TabViewExample() {
   const navigation = useNavigate();
   const dispatch = useDispatch();
   const layout = useWindowDimensions();
-
-  const [index, setIndex] = React.useState(0);
-  const [routes] = React.useState([
+  const [index, setIndex] = useState(0);
+  const [search, setSearch] = useState('');
+  const [routes] = useState([
     { key: 'tickets', title: 'Tickets' },
     { key: 'myTickets', title: 'My Tickets' },
   ]);
@@ -46,10 +61,10 @@ export default function TabViewExample() {
   const renderTabBar = props => (
     <TabBar
       {...props}
-      indicatorStyle={{ backgroundColor: '#6548B8', height: 3 }}
+      indicatorStyle={styles.indicatorStyle}
       activeColor={'#6548B8'}
       inactiveColor={'#4A4A4A'}
-      labelStyle={{ fontWeight: 'bold' }}
+      labelStyle={{ fontWeight: 'bold', fontSize: 18 }}
       style={{ backgroundColor: 'white' }}
     />
   );
@@ -58,7 +73,16 @@ export default function TabViewExample() {
     <View style={styles.container}>
       <StatusBar style="auto" />
       <View style={styles.header}>
-        <View style={{ alignSelf: 'flex-end' }}>
+        <View style={{ flex: 1 }}>
+          <TextInput
+            style={styles.input}
+            value={search}
+            onChangeText={setSearch}
+            placeholder='Search Ticket'
+            underlineColorAndroid='transparent'
+          />
+        </View>
+        <View style={{ alignSelf: 'center', marginLeft: 15 }}>
           <TouchableOpacity onPress={onLogout}>
             <Text style={styles.title}>Logout</Text>
           </TouchableOpacity>

@@ -1,11 +1,72 @@
-import { View, Text } from 'react-native'
+import {
+  View,
+  Text,
+  StyleSheet,
+  ImageBackground,
+  TouchableOpacity
+} from 'react-native'
+import { Octicons } from '@expo/vector-icons'
 import React from 'react'
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    padding: 15,
+    paddingHorizontal: 30,
+  },
+  imageBackground: {
+    width: '100%',
+    height: 150,
+    borderRadius: 10,
+    overflow: 'hidden'
+  },
+  info: {
+    padding: 15,
+    flexDirection: 'row',
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.3)'
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: 'white'
+  },
+  description: {
+    fontSize: 16,
+    color: 'white'
+  },
+  button: {
+    height: 45,
+    width: 45,
+    backgroundColor: 'white',
+    borderRadius: 45,
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
+})
 
 const TicketItem = ({ item }) => {
   return (
-    <View style={{ padding: 15, borderRadius: 10, borderColor: 'black', borderWidth: 1, marginVertical: 5 }}>
-      <Text>{item.title}</Text>
-      <Text>{item.description}</Text>
+    <View style={styles.container}>
+      <ImageBackground
+        source={{ uri: item.photo }}
+        borderRadius={10}
+        style={styles.imageBackground}
+      >
+        <View style={styles.info}>
+          <View style={{ flex: 1, justifyContent: 'flex-end' }}>
+            <Text style={styles.title}>{item.title}</Text>
+            <Text style={styles.description}>{item.description}</Text>
+          </View>
+          <View style={{ justifyContent: 'center' }}>
+            <TouchableOpacity>
+              <View style={styles.button}>
+                <Octicons name='chevron-right' size={24} color='#5033A3' />
+              </View>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </ImageBackground>
     </View>
   )
 }
