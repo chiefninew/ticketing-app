@@ -4,7 +4,7 @@ import { app, BrowserWindow } from 'electron';
 import * as path from 'path';
 import { format as formatUrl } from 'url';
 
-const isDevelopment = !process.env.PRODUCTION;
+const isDevelopment = process.env.MODE !== 'production';
 
 // global reference to mainWindow (necessary to prevent window from being garbage collected)
 let mainWindow;

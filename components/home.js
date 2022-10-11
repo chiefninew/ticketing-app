@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { View, useWindowDimensions, StyleSheet, StatusBar, Text, TouchableOpacity } from 'react-native';
-import { TabView, SceneMap } from 'react-native-tab-view';
+import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import { useDispatch } from 'react-redux';
 import Tickets from './tickets';
 import MyTickets from './my-tickets';
@@ -10,6 +10,15 @@ import { updateUser } from '../actions/user';
 const styles = StyleSheet.create({
   container: {
     flex: 1
+  },
+  header: {
+    padding: 15,
+    paddingTop: StatusBar.currentHeight,
+  },
+  title: {
+    color: 'black',
+    fontWeight: 'bold',
+    fontSize: 16,
   }
 })
 
@@ -34,12 +43,24 @@ export default function TabViewExample() {
     navigation('/')
   });
 
+  const renderTabBar = props => (
+    <TabBar
+      {...props}
+      indicatorStyle={{ backgroundColor: '#6548B8', height: 3 }}
+      activeColor={'#6548B8'}
+      inactiveColor={'#4A4A4A'}
+      labelStyle={{ fontWeight: 'bold' }}
+      style={{ backgroundColor: 'white' }}
+    />
+  );
+
   return (
     <View style={styles.container}>
-      <View style={{ paddingHorizontal: 15, paddingTop: StatusBar.currentHeight, paddingBottom: 10, backgroundColor: 'red' }}>
+      <StatusBar style="auto" />
+      <View style={styles.header}>
         <View style={{ alignSelf: 'flex-end' }}>
           <TouchableOpacity onPress={onLogout}>
-            <Text>Logout</Text>
+            <Text style={styles.title}>Logout</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -47,8 +68,8 @@ export default function TabViewExample() {
         navigationState={{ index, routes }}
         renderScene={renderScene}
         onIndexChange={setIndex}
-        tabBarPosition='bottom'
         initialLayout={{ width: layout.width }}
+        renderTabBar={renderTabBar}
       />
     </View>
   );
