@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, StatusBar } from 'react-native'
 import React from 'react'
 import { useNavigate } from 'react-router-native'
 import Ticket from '../components/ticket'
@@ -45,6 +45,7 @@ const Success = () => {
 
   return (
     <View style={styles.container}>
+      <StatusBar barStyle={'light-content'} />
       <Text style={styles.title}>Thank you!</Text>
       <Text style={styles.subTitle}>You have purchased your ticket successfully</Text>
       <View style={{ marginVertical: 30, width: '100%' }}>

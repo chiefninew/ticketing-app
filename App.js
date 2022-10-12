@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Platform, View } from 'react-native';
 import { NativeRouter, Route, Routes } from 'react-router-native';
 import Home from './screens/home';
 import Login from './screens/login';
@@ -9,6 +9,10 @@ import Success from './screens/success';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './reducers/store';
+
+if(__DEV__ && Platform.OS !== 'web') {
+  import("./ReactotronConfig")
+}
 
 export default function App() {
   return (

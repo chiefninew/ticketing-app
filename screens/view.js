@@ -85,6 +85,7 @@ const TicketView = () => {
 
   return (
     <View style={styles.container}>
+      <StatusBar barStyle={'light-content'} />
       <ScrollView>
         <ImageBackground source={{ uri: selectedTicket.photo }} style={{ width: '100%', height: 250 }}>
           <View style={styles.header}>

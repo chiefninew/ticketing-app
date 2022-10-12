@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
 import SvgQRCode from 'react-native-qrcode-svg';
-import Barcode from '@kichiyaki/react-native-barcode-generator';
+// import Barcode from '@kichiyaki/react-native-barcode-generator';
 
 const styles = StyleSheet.create({
   container: {
@@ -77,13 +77,13 @@ const Ticket = ({ title, price, cutoutColor = '#F2F2F2' }) => {
       <View style={styles.qrcodeContainer}>
         <SvgQRCode size={75} value="Just some string value" />
         <View style={{ width: 40 }} />
-        <Barcode
+        {/* <Barcode
           format="CODE128B"
           value="0000002021954Q"
           text="0000002021954Q"
           height={75}
           maxWidth={175}
-        />
+        /> */}
       </View>
     </View>
   )
