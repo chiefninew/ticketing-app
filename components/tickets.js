@@ -1,6 +1,6 @@
 import { View, Text, FlatList } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import TicketItem from './ticket-item';
+import TicketItem from '../components/ticket-item';
 import data from '../data.json';
 import { selectTicket } from '../reducers/ticket/actions'
 import { useNavigate } from 'react-router-native'

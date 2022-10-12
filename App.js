@@ -1,10 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { NativeRouter, Route, Routes } from 'react-router-native';
-import Home from './components/home';
-import Login from './components/login';
-import Registration from './components/registration';
-import TicketView from './components/ticket-view';
+import Home from './screens/home';
+import Login from './screens/login';
+import Registration from './screens/registration';
+import TicketView from './screens/view';
+import Success from './screens/success';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './reducers/store';
@@ -21,6 +22,7 @@ export default function App() {
               <Route path="/home" element={<Home />} />
               <Route path="/registration" element={<Registration />} />
               <Route path="/home/ticketview" element={<TicketView />} />
+              <Route path="/home/ticketview/success" element={<Success />} />
             </Routes>
           </NativeRouter>
         </View>

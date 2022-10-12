@@ -2,8 +2,8 @@ import React, { useCallback, useState } from 'react';
 import { View, useWindowDimensions, StyleSheet, StatusBar, Text, TouchableOpacity, TextInput } from 'react-native';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import { useDispatch } from 'react-redux';
-import Tickets from './tickets';
-import MyTickets from './my-tickets';
+import Tickets from '../components/tickets';
+import MyTickets from '../components/my-tickets';
 import { useNavigate } from 'react-router-native';
 import { setUser } from '../reducers/user/actions';
 
