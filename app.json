@@ -1,8 +1,9 @@
 {
   "expo": {
-    "name": "ticketing-app",
-    "slug": "ticketing-app",
+    "name": "demo-test-app",
+    "slug": "demo-test-app",
     "version": "1.0.0",
+    "owner": "isaac-test",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -24,10 +25,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.chiefninew.demotestapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "92e51913-d247-4812-a4c3-2ccd26157ab1"
+      }
     }
   }
 }

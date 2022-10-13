@@ -133,6 +133,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "detox": "^19.12.5",
     "electron": "20.0.0",
     "electron-builder": "^23.6.0",
     "react-test-renderer": "^18.2.0",
